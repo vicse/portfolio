@@ -3,7 +3,7 @@ interface Props {
   date: string;
   role: string;
   company: string;
-  description: string;
+  description: string | string[];
   tags: string[];
   isLatest?: boolean;
   side: 'left' | 'right';
@@ -43,9 +43,20 @@ const isLeft = side === 'left';
     {company}
   </h4>
   
-  <p class="font-body-md text-body-md text-on-surface-variant mb-4">
-    {description}
-  </p>
+  {Array.isArray(description) ? (
+    <ul class:list={[
+      "list-disc pl-5 font-body-md text-body-md text-on-surface-variant mb-4 space-y-2 text-left",
+      isLeft ? "md:text-right md:list-none md:pl-0" : ""
+    ]}>
+      {description.map((point) => (
+        <li>{point}</li>
+      ))}
+    </ul>
+  ) : (
+    <p class="font-body-md text-body-md text-on-surface-variant mb-4">
+      {description}
+    </p>
+  )}
   
   <div class:list={[
     "flex flex-wrap gap-2",
