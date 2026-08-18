@@ -1,0 +1,69 @@
+---
+interface Props {
+  date: string;
+  role: string;
+  company: string;
+  description: string;
+  tags: string[];
+  isLatest?: boolean;
+  side: 'left' | 'right';
+}
+
+const { date, role, company, description, tags, isLatest = false, side } = Astro.props;
+
+const isLeft = side === 'left';
+---
+
+<div class:list={[
+  "mb-12 pl-8 relative",
+  isLeft ? "md:col-start-1 md:text-right md:pl-0 md:pr-12 md:mb-24" : "md:col-start-3 md:pl-12 md:mb-24"
+]}>
+  <!-- Bullet Node -->
+  <div class:list={[
+    "absolute top-1 w-4 h-4 rounded-full -left-[9px]",
+    isLeft ? "md:-right-[24px] md:left-auto" : "md:-left-[24px]",
+    isLatest 
+      ? "bg-primary-fixed-dim ring-4 ring-background shadow-[0_0_10px_rgba(0,219,233,0.5)] animate-pulse" 
+      : "bg-surface-variant border-2 border-primary-fixed-dim"
+  ]}></div>
+
+  <!-- Content -->
+  <div class:list={[
+    "font-code-sm text-code-sm mb-2",
+    isLatest ? "text-primary-fixed-dim" : "text-on-surface-variant"
+  ]}>
+    {date}
+  </div>
+  
+  <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">
+    {role}
+  </h3>
+  
+  <h4 class="font-body-md text-body-md text-on-surface-variant mb-4">
+    {company}
+  </h4>
+  
+  <p class="font-body-md text-body-md text-on-surface-variant mb-4">
+    {description}
+  </p>
+  
+  <div class:list={[
+    "flex flex-wrap gap-2",
+    isLeft ? "md:justify-end" : "md:justify-start"
+  ]}>
+    {tags.map((tag) => (
+      <span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">
+        {tag}
+      </span>
+    ))}
+  </div>
+</div>
+
+<!-- Spacer column elements to fill the 3-column grid structure correctly on desktop -->
+{isLeft ? (
+  <div class="hidden md:block md:col-start-2"></div>
+  <div class="hidden md:block md:col-start-3"></div>
+) : (
+  <div class="hidden md:block md:col-start-1"></div>
+  <div class="hidden md:block md:col-start-2"></div>
+)}

@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeaderCV from '../components/HeaderCV.astro';
+import Skills from '../components/Skills.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import Workspace from '../components/Workspace.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const name = "VICSE JEFER ORE SOTO";
+const role = "Senior Backend Developer | Node.js | NestJS | AWS Cloud";
+const description = "Desarrollador Backend especializado en microservicios sobre AWS Cloud con más de 5 años de experiencia. Experto en arquitecturas serverless, DDD, Clean Architecture y despliegues automatizados.";
+const email = "vicseore@gmail.com";
+
+const experiences = [
+  {
+    date: "Febrero 2025 — Actualidad",
+    role: "Senior Backend Developer – NestJS | AWS CLOUD",
+    company: "QDS (Cliente: Kasnet)",
+    description: "Auth with Cognito, IaC with Pulumi, Kafka integration.",
+    tags: ["NestJS", "AWS Cognito", "Pulumi", "Kafka"],
+    isLatest: true,
+    side: "left" as const
+  },
+  {
+    date: "Noviembre 2023 — Diciembre 2024",
+    role: "Desarrollador Backend – NestJS",
+    company: "Workmate/Chile",
+    description: "Microservices for contract auditing, AWS S3 integration, PDF reports.",
+    tags: ["NestJS", "AWS S3"],
+    side: "right" as const
+  },
+  {
+    date: "Julio 2022 — Noviembre 2023",
+    role: "Senior Desarrollador Backend – NodeJS | AWS | Serverless",
+    company: "Indra/Perú",
+    description: "EstarBien platform, DDD/Hexagonal Architecture, Serverless Framework.",
+    tags: ["NodeJS", "AWS Serverless", "DDD"],
+    side: "left" as const
+  },
+  {
+    date: "Noviembre 2021 — Julio 2022",
+    role: "Desarrollador Backend – NodeJS | AWS",
+    company: "Jooycar/Chile",
+    description: "Notification components, Cognito + CDK, VueJS frontend.",
+    tags: ["NodeJS", "Cognito", "CDK"],
+    side: "right" as const
+  },
+  {
+    date: "Noviembre 2020 — Septiembre 2021",
+    role: "Desarrollador Backend – NodeJS | AWS | Serverless",
+    company: "Tata Consultancy Services/Perú",
+    description: "Rimac Seguros, NPS surveys, GCP to Salesforce integration.",
+    tags: ["NodeJS", "AWS Serverless"],
+    side: "left" as const
+  },
+  {
+    date: "Año 2020",
+    role: "Desarrollador Backend – Spring Boot | AWS",
+    company: "Global66/Chile",
+    description: "International transfers, Spring Boot, Liquibase.",
+    tags: ["Spring Boot", "Liquibase"],
+    side: "right" as const
+  },
+  {
+    date: "Año 2019",
+    role: "Desarrollador Backend – Spring Boot | AWS",
+    company: "Everis (BCP)/Lima",
+    description: "Banking APIs, Spring Boot, Payment solutions.",
+    tags: ["Spring Boot", "AWS"],
+    side: "left" as const
+  }
+];
+---
+
+<Layout title={`${name} - ${role}`}>
+  <HeaderCV 
+    name={name} 
+    role={role} 
+    description={description} 
+  />
+  
+  <main class="flex-grow pt-20">
+    <!-- Tech Stack Section -->
+    <Skills />
+
+    <!-- Experience Section -->
+    <section class="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto" id="experience">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-16">
+        <span class="text-primary-fixed-dim font-code-sm text-code-sm align-middle mr-2">02.</span> Professional Trajectory
+      </h2>
+      
+      <div class="relative border-l-2 border-outline-variant/30 ml-4 md:ml-0 md:border-none md:grid md:grid-cols-[1fr_auto_1fr] md:gap-x-8">
+        <!-- Decorative Timeline Line for Desktop -->
+        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant/30 transform -translate-x-1/2"></div>
+        
+        {experiences.map((exp) => (
+          <ExperienceItem {...exp} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Workspace Section -->
+    <Workspace />
+
+    <!-- Contact Section -->
+    <Contact email={email} />
+  </main>
+
+  <Footer name={name} />
+</Layout>

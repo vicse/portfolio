@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VICSE JEFER ORE SOTO - Senior Backend Developer</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#d1bcff",
+                        "tertiary-fixed-dim": "#c6c5d4",
+                        "secondary": "#d1bcff",
+                        "secondary-container": "#7000ff",
+                        "inverse-primary": "#006970",
+                        "surface-container-lowest": "#010f1f",
+                        "on-secondary-container": "#ddcdff",
+                        "outline-variant": "#3b494b",
+                        "surface-dim": "#051424",
+                        "surface-container-low": "#0d1c2d",
+                        "on-secondary-fixed": "#23005b",
+                        "on-surface": "#d4e4fa",
+                        "outline": "#849495",
+                        "on-tertiary-fixed-variant": "#454652",
+                        "on-tertiary-fixed": "#1a1b26",
+                        "on-surface-variant": "#b9cacb",
+                        "primary-fixed": "#7df4ff",
+                        "on-primary-container": "#006970",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#233143",
+                        "error-container": "#93000a",
+                        "surface-variant": "#273647",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#00dbe9",
+                        "secondary-fixed": "#e9ddff",
+                        "on-background": "#d4e4fa",
+                        "surface-container-high": "#1c2b3c",
+                        "inverse-surface": "#d4e4fa",
+                        "primary": "#dbfcff",
+                        "on-tertiary": "#2f303b",
+                        "tertiary": "#f7f4ff",
+                        "error": "#ffb4ab",
+                        "surface": "#051424",
+                        "surface-tint": "#00dbe9",
+                        "primary-container": "#00f0ff",
+                        "on-secondary": "#3c0090",
+                        "tertiary-container": "#d9d8e8",
+                        "surface-bright": "#2c3a4c",
+                        "surface-container": "#122131",
+                        "on-tertiary-container": "#5d5e6b",
+                        "background": "#051424",
+                        "surface-container-highest": "#273647",
+                        "on-primary-fixed-variant": "#004f54",
+                        "tertiary-fixed": "#e2e1f1",
+                        "on-primary-fixed": "#002022",
+                        "on-secondary-fixed-variant": "#5700c9",
+                        "on-primary": "#00363a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "section-gap": "120px",
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Geist"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Geist"],
+                        "body-md": ["Inter"],
+                        "code-sm": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "code-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-surface-container-high/50 backdrop-blur-md border border-outline-variant/30;
+            }
+            .text-glow {
+                text-shadow: 0 0 10px theme('colors.primary-fixed-dim' / 50%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md dark:bg-surface/80 border-b border-outline-variant/30 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+<a class="font-headline-lg text-headline-lg font-black tracking-tighter text-primary dark:text-primary hover:text-primary-fixed transition-colors" href="#">VICSE JEFER ORE SOTO</a>
+<nav class="hidden md:flex gap-8 items-center font-label-caps text-label-caps">
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#hero">Hero</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#experience">Experience</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#stack">Stack</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#projects">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
+</nav>
+<a class="hidden md:inline-flex items-center justify-center px-6 py-3 bg-primary-fixed-dim text-on-primary-container font-label-caps text-label-caps rounded hover:bg-primary-fixed transition-all hover:shadow-[0_0_15px_rgba(0,219,233,0.4)]" href="#resume">
+                Resume
+            </a>
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex flex-col justify-center items-center px-margin-mobile md:px-gutter py-section-gap overflow-hidden" id="hero">
+<!-- Decorative background elements -->
+<div class="absolute inset-0 pointer-events-none opacity-20" style="background-image: radial-gradient(circle at 50% 50%, theme('colors.primary-fixed-dim') 0%, transparent 50%);"></div>
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-12 z-10 w-full">
+<div class="w-full md:w-1/2 flex flex-col items-start space-y-6">
+<span class="font-code-sm text-code-sm text-primary-fixed-dim tracking-widest uppercase">System.out.println("Hello, World!");</span>
+<h1 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface">Senior Backend Developer | Node.js | NestJS | AWS Cloud</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">Desarrollador Backend especializado en microservicios sobre AWS Cloud con más de 5 años de experiencia. Experto en arquitecturas serverless, DDD, Clean Architecture y despliegues automatizados.</p>
+<div class="flex gap-4 pt-4">
+<a class="px-8 py-4 bg-primary-fixed-dim text-on-primary-container font-label-caps text-label-caps rounded hover:bg-primary-fixed transition-all hover:shadow-[0_0_20px_rgba(0,219,233,0.5)]" href="#contact">Deploy Project</a>
+<a class="px-8 py-4 border border-primary-fixed-dim text-primary-fixed-dim font-code-sm text-code-sm rounded hover:bg-primary-fixed-dim/10 transition-colors flex items-center gap-2" href="#github">
+<span class="material-symbols-outlined text-xl">code</span> View Source
+                        </a>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex justify-center md:justify-end relative">
+<div class="relative w-64 h-64 md:w-96 md:h-96 rounded-full p-2 bg-gradient-to-tr from-primary-fixed-dim/20 to-secondary-container/20 border border-outline-variant/30">
+<img alt="Profile Picture" class="w-full h-full object-cover rounded-full filter grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZwP1oLFDtpo0qWDH9dk5rF1qnaDTTAK1ESs4Mk9M4HHsMrXFXQJW0Xqi2eDY9htpeHun5IWjv_fTKLScKvBBZ2zDACQsfhKWalcXH5T3CChNvnW2SNHQIABtgdYr8h5twpzPlucH_Q6FRUE6Da0xhE8aO7N24USMg-Cfk3wJZr3U3BcPRtffsvo0grfvhwZtXK10JGlocoTD2XzFzbV9OqCkv431S_eOBkZDbOmgP5sVvkolcNcK5JWb0p-RcQ2e7Rw"/>
+<!-- Floating Tech Tags -->
+<div class="absolute -top-4 -right-4 px-3 py-1 bg-surface-container-high border border-outline-variant/50 rounded font-code-sm text-code-sm text-on-surface-variant shadow-lg animate-bounce" style="animation-duration: 3s;">AWS</div>
+<div class="absolute bottom-10 -left-6 px-3 py-1 bg-surface-container-high border border-outline-variant/50 rounded font-code-sm text-code-sm text-on-surface-variant shadow-lg animate-bounce" style="animation-duration: 4s;">NestJS</div>
+<div class="absolute -bottom-4 right-10 px-3 py-1 bg-surface-container-high border border-outline-variant/50 rounded font-code-sm text-code-sm text-on-surface-variant shadow-lg animate-bounce" style="animation-duration: 3.5s;">Node.js</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Stack Section -->
+<section class="py-section-gap px-margin-mobile md:px-gutter bg-surface-container-low border-y border-outline-variant/10" id="stack">
+<div class="max-w-container-max mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-12"><span class="text-primary-fixed-dim font-code-sm text-code-sm align-middle mr-2">01.</span> Core Technologies</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<!-- Tech Card 1 -->
+<div class="glass-panel p-8 rounded flex flex-col items-center gap-4 hover:border-primary-fixed-dim/50 transition-colors group cursor-default">
+<span class="material-symbols-outlined text-5xl text-on-surface-variant group-hover:text-primary-fixed-dim transition-colors group-hover:text-glow">javascript</span>
+<span class="font-code-sm text-code-sm text-on-surface">Node.js / NestJS</span>
+</div>
+<!-- Tech Card 2 -->
+<div class="glass-panel p-8 rounded flex flex-col items-center gap-4 hover:border-primary-fixed-dim/50 transition-colors group cursor-default">
+<span class="material-symbols-outlined text-5xl text-on-surface-variant group-hover:text-primary-fixed-dim transition-colors group-hover:text-glow">cloud</span>
+<span class="font-code-sm text-code-sm text-on-surface">AWS Cloud</span>
+</div>
+<!-- Tech Card 3 -->
+<div class="glass-panel p-8 rounded flex flex-col items-center gap-4 hover:border-primary-fixed-dim/50 transition-colors group cursor-default">
+<span class="material-symbols-outlined text-5xl text-on-surface-variant group-hover:text-primary-fixed-dim transition-colors group-hover:text-glow">schema</span>
+<span class="font-code-sm text-code-sm text-on-surface">Kafka / Pulumi</span>
+</div>
+<!-- Tech Card 4 -->
+<div class="glass-panel p-8 rounded flex flex-col items-center gap-4 hover:border-primary-fixed-dim/50 transition-colors group cursor-default">
+<span class="material-symbols-outlined text-5xl text-on-surface-variant group-hover:text-primary-fixed-dim transition-colors group-hover:text-glow">lock</span>
+<span class="font-code-sm text-code-sm text-on-surface">Cognito</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Timeline -->
+<section class="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto" id="experience">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-16"><span class="text-primary-fixed-dim font-code-sm text-code-sm align-middle mr-2">02.</span> Professional Trajectory</h2>
+<div class="relative border-l-2 border-outline-variant/30 ml-4 md:ml-0 md:border-none md:grid md:grid-cols-[1fr_auto_1fr] md:gap-x-8">
+<!-- Decorative Timeline Line for Desktop -->
+<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant/30 transform -translate-x-1/2"></div>
+<!-- Experience Item 1 -->
+<div class="mb-12 pl-8 relative md:col-start-1 md:text-right md:pl-0 md:pr-12 md:mb-24">
+<!-- Node -->
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-primary-fixed-dim md:-right-[24px] md:left-auto ring-4 ring-background shadow-[0_0_10px_theme('colors.primary-fixed-dim')] animate-pulse"></div>
+<div class="font-code-sm text-code-sm text-primary-fixed-dim mb-2">Febrero 2025 — Actualidad</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Senior Backend Developer – NestJS | AWS CLOUD</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4">QDS (Cliente: Kasnet)</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Auth with Cognito, IaC with Pulumi, Kafka integration.</p>
+<div class="flex flex-wrap gap-2 md:justify-end">
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">NestJS</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">AWS Cognito</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">Pulumi</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">Kafka</span>
+</div>
+</div>
+<!-- Spacer for Grid alignment -->
+<div class="hidden md:block md:col-start-2"></div>
+<div class="hidden md:block md:col-start-3"></div>
+<!-- Spacer for Grid alignment -->
+<div class="hidden md:block md:col-start-1"></div>
+<div class="hidden md:block md:col-start-2"></div>
+<!-- Experience Item 2 -->
+<div class="mb-12 pl-8 relative md:col-start-3 md:pl-12 md:mb-24">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-variant border-2 border-primary-fixed-dim md:-left-[24px]"></div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mb-2">Noviembre 2023 — Diciembre 2024</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Desarrollador Backend – NestJS</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4">Workmate/Chile</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Microservices for contract auditing, AWS S3 integration, PDF reports.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">NestJS</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">AWS S3</span>
+</div>
+</div>
+<!-- Experience Item 3 -->
+<div class="mb-12 pl-8 relative md:col-start-1 md:text-right md:pl-0 md:pr-12 md:mb-24">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-variant border-2 border-primary-fixed-dim md:-right-[24px] md:left-auto"></div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mb-2">Julio 2022 — Noviembre 2023</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Senior Desarrollador Backend – NodeJS | AWS | Serverless</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4">Indra/Perú</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">EstarBien platform, DDD/Hexagonal Architecture, Serverless Framework.</p>
+<div class="flex flex-wrap gap-2 md:justify-end">
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">NodeJS</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">AWS Serverless</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">DDD</span>
+</div>
+</div>
+<!-- Experience Item 4 -->
+<div class="mb-12 pl-8 relative md:col-start-3 md:pl-12 md:mb-24">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-variant border-2 border-primary-fixed-dim md:-left-[24px]"></div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mb-2">Noviembre 2021 — Julio 2022</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Desarrollador Backend – NodeJS | AWS</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4">Jooycar/Chile</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Notification components, Cognito + CDK, VueJS frontend.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">NodeJS</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">Cognito</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">CDK</span>
+</div>
+</div>
+<!-- Experience Item 5 -->
+<div class="mb-12 pl-8 relative md:col-start-1 md:text-right md:pl-0 md:pr-12 md:mb-24">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-variant border-2 border-primary-fixed-dim md:-right-[24px] md:left-auto"></div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mb-2">Noviembre 2020 — Septiembre 2021</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Desarrollador Backend – NodeJS | AWS | Serverless</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4">Tata Consultancy Services/Perú</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Rimac Seguros, NPS surveys, GCP to Salesforce integration.</p>
+<div class="flex flex-wrap gap-2 md:justify-end">
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">NodeJS</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">AWS Serverless</span>
+</div>
+</div>
+<!-- Experience Item 6 -->
+<div class="mb-12 pl-8 relative md:col-start-3 md:pl-12 md:mb-24">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-variant border-2 border-primary-fixed-dim md:-left-[24px]"></div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mb-2">Año 2020</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Desarrollador Backend – Spring Boot | AWS</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4">Global66/Chile</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">International transfers, Spring Boot, Liquibase.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">Spring Boot</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">Liquibase</span>
+</div>
+</div>
+<!-- Experience Item 7 -->
+<div class="mb-12 pl-8 relative md:col-start-1 md:text-right md:pl-0 md:pr-12">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-variant border-2 border-primary-fixed-dim md:-right-[24px] md:left-auto"></div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mb-2">Año 2019</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Desarrollador Backend – Spring Boot | AWS</h3>
+<h4 class="font-body-md text-body-md text-on-surface-variant mb-4">Everis (BCP)/Lima</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Banking APIs, Spring Boot, Payment solutions.</p>
+<div class="flex flex-wrap gap-2 md:justify-end">
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">Spring Boot</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-code-sm text-code-sm text-on-surface-variant text-xs">AWS</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery / Workspace Section -->
+<section class="py-section-gap px-margin-mobile md:px-gutter bg-surface-container-lowest" id="gallery">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-12"><span class="text-primary-fixed-dim font-code-sm text-code-sm align-middle mr-2">03.</span> Workspace &amp; Life</h2>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+<!-- Main Setup Image -->
+<div class="md:col-span-8 rounded overflow-hidden group relative">
+<div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
+<img alt="Modern dual-monitor developer workspace setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzYJVAtbs5VoH3PUYCuVRxfjEaqKYq1Dwhh01xuf8SnK9tq4HSat3lWx2xYdewcjgdVrUk7k_YwbK_t99zZvGQGEZHHqF778iYB4wEVi3XVqmXQYtR3QnrhT3YWlyTLKd8Xh2f-Gp0JVZPvljE-ve7izwp5E8DY-15aMTgB0cwmrhgg3UUnHB54tWudUZYh0CsVwuHNRCHx2-Y0oyOEIh2sAUTjQz5m3mxGP1pxmZBa9Pn_GV_i2j5ZRixmu6_aYZWMA"/>
+<div class="absolute bottom-4 left-4 z-20 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur font-code-sm text-code-sm rounded">/command_center</div>
+</div>
+<!-- Secondary Setup Image -->
+<div class="md:col-span-4 rounded overflow-hidden group relative">
+<div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
+<img alt="Ultrawide monitor desktop setup with mechanical keyboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH1YiXTW5bH28k-NTQddR0wzEzP4EWKO_vEPYHWMDAhHlhvJVbB5IFRDZTbdthxBXVHarFkOSMmSNND3kX1YXSW2qsUULS2zx7fPKn3y8qhYQflb3Ki5Ps6rLSITUdVzBz5YS7lWBC65_QEe43tHXv9iSSwLtEVYd0mDmjLrYz0pVN5dmIMBPhsqGwFY1Y0UOH2qZGcEsHpgL7atgL_RTplNdl804uptHI4aBSN0DCsmTIFmj4H-eDX_R99MntlCeZ4Q"/>
+<div class="absolute bottom-4 left-4 z-20 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur font-code-sm text-code-sm rounded">/battlestation</div>
+</div>
+<!-- Life Image -->
+<div class="md:col-span-12 rounded overflow-hidden group relative h-64 md:h-auto">
+<div class="absolute inset-0 bg-surface-container-highest/40 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
+<img alt="Developer hiking in a mountainous landscape during time off" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLmPuDeHtqmsHpzkGD40xBVZKZoef4WGDXAjcdgVvBQ91WhGeicoDW44S503GyiSOOw6xvbSH_EmfOU2E53QrktX886fTgIV_0IAI8hJOcMl29wqEW8YSgLbSUpeRanDRBhNGDjY4MCd_UUho0VBWLiXzEMOhH0RAqO_nTi5yOWeiNdHrK7QWAEbhYE1rWJn4CNVLxxxgC3QXbURN-W6SrqS6B0Jw-FaUYArenxGG2gUNAD1jpPgvxBWW5sQXEU3mTGw"/>
+<div class="absolute bottom-4 left-4 z-20 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur font-code-sm text-code-sm rounded">/offline_mode</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto text-center" id="contact">
+<span class="font-code-sm text-code-sm text-primary-fixed-dim mb-4 block">04. What's Next?</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-6">Let's Build Something Together</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto mb-12">I'm currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+<a class="inline-flex items-center gap-2 px-8 py-4 border border-primary-fixed-dim text-primary-fixed-dim font-label-caps text-label-caps rounded hover:bg-primary-fixed-dim/10 transition-colors group" href="mailto:hello@example.com">
+<span class="material-symbols-outlined group-hover:rotate-12 transition-transform">mail</span> Say Hello
+            </a>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 px-gutter max-w-container-max mx-auto">
+<div class="font-label-caps text-label-caps text-primary">
+                VICSE JEFER ORE SOTO
+            </div>
+<nav class="flex gap-6 font-code-sm text-code-sm">
+<a class="text-on-tertiary-container hover:text-primary-fixed-dim underline-offset-4 hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">Github</a>
+<a class="text-on-tertiary-container hover:text-primary-fixed-dim underline-offset-4 hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">LinkedIn</a>
+<a class="text-on-tertiary-container hover:text-primary-fixed-dim underline-offset-4 hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">Twitter</a>
+<a class="text-on-tertiary-container hover:text-primary-fixed-dim underline-offset-4 hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">Source</a>
+</nav>
+<div class="font-code-sm text-code-sm text-tertiary-fixed-dim dark:text-tertiary-fixed-dim text-center md:text-right">
+                © 2024 VICSE JEFER ORE SOTO. ENGINEERED WITH PRECISION.
+            </div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import imgCommandCenter from '../assets/workspace_command_center.jpg';
+import imgBattlestation from '../assets/workspace_battlestation.jpg';
+import imgOfflineMode from '../assets/workspace_offline_mode.jpg';
+
+const images = [
+  {
+    src: imgCommandCenter,
+    alt: "Modern dual-monitor developer workspace setup",
+    tag: "/command_center",
+    cols: "md:col-span-8",
+    grayscale: false
+  },
+  {
+    src: imgBattlestation,
+    alt: "Ultrawide monitor desktop setup with mechanical keyboard",
+    tag: "/battlestation",
+    cols: "md:col-span-4",
+    grayscale: true
+  },
+  {
+    src: imgOfflineMode,
+    alt: "Developer hiking in a mountainous landscape during time off",
+    tag: "/offline_mode",
+    cols: "md:col-span-12",
+    grayscale: false,
+    extraClasses: "h-64 md:h-auto"
+  }
+];
+---
+
+<section class="py-section-gap px-margin-mobile md:px-gutter bg-surface-container-lowest" id="gallery">
+  <div class="max-w-container-max mx-auto">
+    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-12">
+      <span class="text-primary-fixed-dim font-code-sm text-code-sm align-middle mr-2">03.</span> Workspace & Life
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+      {images.map((img) => (
+        <div class:list={[img.cols, img.extraClasses, "rounded overflow-hidden group relative"]}>
+          <div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
+          <Image
+            src={img.src}
+            alt={img.alt}
+            class:list={[
+              "w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out",
+              img.grayscale ? "grayscale group-hover:grayscale-0" : "",
+              img.tag === "/offline_mode" ? "object-center" : ""
+            ]}
+          />
+          <div class="absolute bottom-4 left-4 z-20 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur font-code-sm text-code-sm rounded">
+            {img.tag}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

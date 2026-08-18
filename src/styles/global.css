@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-surface-container-high/50 backdrop-blur-md border border-outline-variant/30;
+  }
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 219, 233, 0.5);
+  }
+}
