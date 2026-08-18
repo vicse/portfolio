@@ -1,5 +1,7 @@
 # Cyber-Minimalist Portfolio – VICSE JEFER ORE SOTO
 
+🔗 **Sitio Web Publicado:** [vicse-porfolio.netlify.app](https://vicse-porfolio.netlify.app/)
+
 Este es un portafolio web premium y de alto rendimiento diseñado con una estética **Cyber-Minimalist**. Está construido utilizando **Astro** y **Tailwind CSS**, optimizado para desarrolladores backend de alta gama.
 
 Apunta a un diseño inspirado en IDEs, terminales de código y el contraste de colores oscuros con luces cian y moradas (Midnight Navy & Neon glow).
