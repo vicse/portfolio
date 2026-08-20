@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeaderCV from './HeaderCV.astro';
+import Skills from './Skills.astro';
+import ExperienceItem from './ExperienceItem.astro';
+import Workspace from './Workspace.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const name = "VICSE JEFER ORE SOTO";
+const email = "vicseore@gmail.com";
+
+const experienceData = t('experience');
+const experiences = experienceData.items.map((item, index) => ({
+  ...item,
+  tags: getTagsByIndex(index),
+  isLatest: index === 0,
+  side: (index % 2 === 0 ? 'left' : 'right') as 'left' | 'right'
+}));
+
+function getTagsByIndex(index: number) {
+  const tagsList = [
+    ["NestJS", "AWS Cognito", "Pulumi", "Kafka", "KMS", "RDS", "ECS AWS", "ALB", "AWS API Gateway", "AWS SQS", "AWS Lambda"],
+    ["NestJS", "TypeORM", "JWT", "PostgreSQL", "Swagger", "AWS Lambda", "Cognito", "S3", "Docker"],
+    ["NodeJS", "AWS Serverless", "DDD", "Hexagonal", "Jest", "BDD", "SES", "SQS", "ContentStack"],
+    ["NodeJS", "Express", "MongoDB", "Redis", "Cognito", "CDK", "VueJS", "Pinia", "TypeScript"],
+    ["NodeJS", "AWS Serverless", "GCP", "Cloud Functions", "Python", "Salesforce", "API Gateway"],
+    ["Spring Boot", "JPA", "SQL Server", "RxJava", "Retrofit", "SpotBugs", "JUnit", "Jacoco", "SonarQube", "Jenkins", "RDS"],
+    ["Java", "Spring Boot", "JPA", "SQL Server", "RxJava", "Retrofit", "SpotBugs", "JUnit", "Jacoco", "SonarQube", "Jenkins"]
+  ];
+  return tagsList[index] || [];
+}
+---
+
+<Layout title={`${name} - ${t('hero').role}`} lang={lang}>
+  <HeaderCV 
+    name={name} 
+    lang={lang}
+  />
+  
+  <main class="flex-grow pt-20">
+    <!-- Tech Stack Section -->
+    <Skills lang={lang} />
+
+    <!-- Experience Section -->
+    <section class="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto" id="experience">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-16">
+        <span class="text-primary-fixed-dim font-code-sm text-code-sm align-middle mr-2">02.</span> {experienceData.title}
+      </h2>
+      
+      <div class="relative border-l-2 border-outline-variant/30 ml-4 md:ml-0 md:border-none md:grid md:grid-cols-[1fr_auto_1fr] md:gap-x-8">
+        <!-- Decorative Timeline Line for Desktop -->
+        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant/30 transform -translate-x-1/2"></div>
+        
+        {experiences.map((exp) => (
+          <ExperienceItem {...exp} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Workspace Section -->
+    <Workspace lang={lang} />
+
+    <!-- Contact Section -->
+    <Contact email={email} lang={lang} />
+  </main>
+
+  <Footer name={name} lang={lang} />
+</Layout>

@@ -3,25 +3,34 @@ import { Image } from 'astro:assets';
 import imgCommandCenter from '../assets/workspace_command_center.jpg';
 import imgBattlestation from '../assets/workspace_battlestation.jpg';
 import imgOfflineMode from '../assets/workspace_offline_mode.jpg';
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const workspace = t('workspace');
 
 const images = [
   {
     src: imgCommandCenter,
-    alt: "Modern dual-monitor developer workspace setup",
+    alt: workspace.images.commandCenter,
     tag: "/command_center",
     cols: "md:col-span-8",
     grayscale: false
   },
   {
     src: imgBattlestation,
-    alt: "Ultrawide monitor desktop setup with mechanical keyboard",
+    alt: workspace.images.battlestation,
     tag: "/battlestation",
     cols: "md:col-span-4",
     grayscale: true
   },
   {
     src: imgOfflineMode,
-    alt: "Developer hiking in a mountainous landscape during time off",
+    alt: workspace.images.offlineMode,
     tag: "/offline_mode",
     cols: "md:col-span-12",
     grayscale: false,
@@ -33,7 +42,7 @@ const images = [
 <section class="py-section-gap px-margin-mobile md:px-gutter bg-surface-container-lowest" id="gallery">
   <div class="max-w-container-max mx-auto">
     <h2 class="font-headline-lg text-headline-lg text-on-surface mb-12">
-      <span class="text-primary-fixed-dim font-code-sm text-code-sm align-middle mr-2">03.</span> Workspace & Life
+      <span class="text-primary-fixed-dim font-code-sm text-code-sm align-middle mr-2">03.</span> {workspace.title}
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
       {images.map((img) => (

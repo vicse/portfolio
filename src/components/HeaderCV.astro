@@ -1,31 +1,42 @@
 ---
 import { Image } from 'astro:assets';
 import avatarImg from '../assets/avatar.jpg';
-import cvPdf from '../assets/CV_Vicse_Ore_Soto.pdf';
+import { useTranslations, type Lang } from '../i18n/utils';
 
 interface Props {
   name: string;
-  role: string;
-  description: string;
+  lang: Lang;
 }
 
-const { name, role, description } = Astro.props;
+const { name, lang } = Astro.props;
+const t = useTranslations(lang);
+const nav = t('nav');
+const hero = t('hero');
 ---
 
 <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300 ease-in-out">
   <div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
-    <a class="font-headline-lg text-headline-lg font-black tracking-tighter text-primary hover:text-primary-fixed transition-colors" href="#">{name}</a>
-    <nav class="hidden md:flex gap-8 items-center font-label-caps text-label-caps">
-      <a class="text-primary font-bold border-b-2 border-primary pb-1" href="#hero">Hero</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#experience">Experience</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#stack">Stack</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#gallery">Workspace</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
+    <a class="text-2xl md:text-3xl font-black tracking-tighter text-primary hover:text-primary-fixed transition-colors" href="#">{name}</a>
+    <nav class="hidden lg:flex gap-6 items-center font-label-caps text-label-caps">
+      <a class="text-primary font-bold border-b-2 border-primary pb-1" href="#hero">{nav.hero}</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#experience">{nav.experience}</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#stack">{nav.stack}</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#gallery">{nav.gallery}</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#contact">{nav.contact}</a>
     </nav>
-    <a class="hidden md:inline-flex items-center justify-center px-6 py-3 bg-primary-fixed-dim text-on-primary-container font-label-caps text-label-caps rounded hover:bg-primary-fixed transition-all hover:shadow-[0_0_15px_rgba(0,219,233,0.4)]" href={cvPdf} target="_blank" download="CV_Vicse_Ore_Soto.pdf">
-      Resume
-    </a>
-    <button class="md:hidden text-primary p-2">
+    <div class="flex items-center gap-4">
+      <!-- Language Selector Toggle -->
+      <div class="flex items-center gap-1 font-code-sm text-code-sm border border-outline-variant/30 rounded px-2 py-1 bg-surface-container-high/40">
+        <button class={`px-1.5 py-0.5 rounded transition-colors duration-200 ${lang === 'es' ? 'text-primary-fixed-dim bg-outline-variant/30 font-bold' : 'text-on-surface-variant hover:text-primary'}`} data-lang-btn="es">ES</button>
+        <span class="text-outline-variant/50">|</span>
+        <button class={`px-1.5 py-0.5 rounded transition-colors duration-200 ${lang === 'en' ? 'text-primary-fixed-dim bg-outline-variant/30 font-bold' : 'text-on-surface-variant hover:text-primary'}`} data-lang-btn="en">EN</button>
+      </div>
+
+      <a class="hidden lg:inline-flex items-center justify-center px-5 py-2.5 bg-primary-fixed-dim text-on-primary-container font-label-caps text-label-caps rounded hover:bg-primary-fixed transition-all hover:shadow-[0_0_15px_rgba(0,219,233,0.4)] whitespace-nowrap" href={nav.cvDownloadUrl} target="_blank" download={nav.cvDownloadUrl.split('/').pop()}>
+        {nav.resume}
+      </a>
+    </div>
+    <button class="lg:hidden text-primary p-2">
       <span class="material-symbols-outlined">menu</span>
     </button>
   </div>
@@ -39,17 +50,17 @@ const { name, role, description } = Astro.props;
     <div class="w-full md:w-1/2 flex flex-col items-start space-y-6">
       <span class="font-code-sm text-code-sm text-primary-fixed-dim tracking-widest uppercase">System.out.println("Hello, World!");</span>
       <h1 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface">
-        {role}
+        {hero.role}
       </h1>
       <p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
-        {description}
+        {hero.description}
       </p>
-      <div class="flex gap-4 pt-4">
-        <a class="inline-flex items-center justify-center px-8 py-4 bg-primary-fixed-dim text-on-primary-container font-label-caps text-label-caps rounded hover:bg-primary-fixed transition-all hover:shadow-[0_0_20px_rgba(0,219,233,0.5)]" href="#contact">
-          Deploy Project
+      <div class="flex flex-wrap gap-4 pt-4">
+        <a class="inline-flex items-center justify-center px-8 py-4 bg-primary-fixed-dim text-on-primary-container font-label-caps text-label-caps rounded hover:bg-primary-fixed transition-all hover:shadow-[0_0_20px_rgba(0,219,233,0.5)] whitespace-nowrap" href="#contact">
+          {hero.deployProject}
         </a>
-        <a class="inline-flex items-center justify-center px-8 py-4 border border-primary-fixed-dim text-primary-fixed-dim font-code-sm text-code-sm rounded hover:bg-primary-fixed-dim/10 transition-colors gap-2" href="#github">
-          <span class="material-symbols-outlined text-xl">code</span> View Source
+        <a class="inline-flex items-center justify-center px-8 py-4 border border-primary-fixed-dim text-primary-fixed-dim font-code-sm text-code-sm rounded hover:bg-primary-fixed-dim/10 transition-colors gap-2 whitespace-nowrap" href="#github">
+          <span class="material-symbols-outlined text-xl">code</span> {hero.viewSource}
         </a>
       </div>
     </div>
@@ -69,3 +80,16 @@ const { name, role, description } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  const buttons = document.querySelectorAll('[data-lang-btn]');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const targetLang = (e.currentTarget as HTMLButtonElement).dataset.langBtn;
+      if (targetLang) {
+        localStorage.setItem('preferred-lang', targetLang);
+        window.location.pathname = targetLang === 'es' ? '/' : '/en';
+      }
+    });
+  });
+</script>

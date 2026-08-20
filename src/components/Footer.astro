@@ -1,9 +1,14 @@
 ---
+import { useTranslations, type Lang } from '../i18n/utils';
+
 interface Props {
   name: string;
+  lang: Lang;
 }
 
-const { name } = Astro.props;
+const { name, lang } = Astro.props;
+const t = useTranslations(lang);
+const footer = t('footer');
 const currentYear = new Date().getFullYear();
 ---
 
@@ -17,7 +22,7 @@ const currentYear = new Date().getFullYear();
       <a class="text-on-tertiary-container hover:text-primary-fixed-dim underline-offset-4 hover:underline opacity-80 hover:opacity-100 transition-opacity" href="https://www.linkedin.com/in/vicseoresoto/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </nav>
     <div class="font-code-sm text-code-sm text-tertiary-fixed-dim text-center md:text-right">
-      © {currentYear} {name}. ENGINEERED WITH PRECISION.
+      © {currentYear} {name}. {footer.engineered}
     </div>
   </div>
 </footer>

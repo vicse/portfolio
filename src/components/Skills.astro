@@ -1,4 +1,13 @@
 ---
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
 const skills = [
   { icon: 'javascript', name: 'Node.js / NestJS' },
   { icon: 'cloud', name: 'AWS Cloud' },
@@ -10,7 +19,7 @@ const skills = [
 <section class="py-section-gap px-margin-mobile md:px-gutter bg-surface-container-low border-y border-outline-variant/10" id="stack">
   <div class="max-w-container-max mx-auto text-center">
     <h2 class="font-headline-lg text-headline-lg text-on-surface mb-12">
-      <span class="text-primary-fixed-dim font-code-sm text-code-sm align-middle mr-2">01.</span> Core Technologies
+      <span class="text-primary-fixed-dim font-code-sm text-code-sm align-middle mr-2">01.</span> {t('skills').title}
     </h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
       {skills.map((skill) => (

@@ -1,0 +1,122 @@
+{
+  "nav": {
+    "hero": "Inicio",
+    "experience": "Experiencia",
+    "stack": "Tecnologías",
+    "gallery": "Workspace",
+    "contact": "Contacto",
+    "resume": "Descargar CV",
+    "cvDownloadUrl": "/CV_Vicse_Ore_Soto_ES.pdf"
+  },
+  "hero": {
+    "role": "Desarrollador Backend Senior | Node.js | NestJS | AWS Cloud",
+    "description": "Desarrollador Backend especializado en microservicios en AWS Cloud con más de 5 años de experiencia. Experto en arquitecturas serverless, DDD, Arquitectura Limpia, arquitectura de microservicios, sistemas distribuidos y despliegues automatizados.",
+    "deployProject": "Desplegar Proyecto",
+    "viewSource": "Ver Código"
+  },
+  "skills": {
+    "title": "Tecnologías Principales"
+  },
+  "experience": {
+    "title": "Trayectoria Profesional",
+    "items": [
+      {
+        "date": "Febrero 2025 — Presente",
+        "role": "Desarrollador Backend Senior – NestJS | AWS CLOUD",
+        "company": "QDS (Cliente: Kasnet)",
+        "description": [
+          "Implementé un módulo de autenticación seguro para Backoffice con AWS Cognito, OTP y KMS, y automaticé la infraestructura en la nube usando Pulumi (IaC).",
+          "Integré servicios de billetera digital con EEDE (Gmoney y Ligo) a través de Apache Kafka y webhooks, asegurando transacciones en tiempo real.",
+          "Optimicé los flujos de afiliación de agentes y contribuí al desarrollo de extremo a extremo de aplicaciones móviles React Native y de backoffice web en React.",
+          "Aceleré los flujos de desarrollo utilizando AWS Kiro Code Agent, Amazon Q (Sonnet, Opus) y extensiones personalizadas de MCP."
+        ]
+      },
+      {
+        "date": "Noviembre 2023 — Diciembre 2024",
+        "role": "Desarrollador Backend – NestJS",
+        "company": "Workmate/Chile",
+        "description": [
+          "Implementé microservicios dedicados a la auditoría de contratos y subcontratos.",
+          "Desarrollé un módulo de inspección para auditar trabajadores bajo la normativa de CODELCO.",
+          "Actualicé el paquete npm compartido de la empresa @sucal/shared, agregando interfaces, clases de ayuda, funciones reutilizables y una plantilla para la creación de PDFs.",
+          "Generé reportes PDF estructurados y automatizados para el seguimiento de cumplimiento.",
+          "Desarrollé microservicios para la carga de documentos e imágenes a AWS S3 utilizando URLs firmadas con AWS SDK."
+        ]
+      },
+      {
+        "date": "Julio 2022 — Noviembre 2023",
+        "role": "Desarrollador Backend Senior – NodeJS | AWS | Serverless",
+        "company": "Indra/Perú",
+        "description": [
+          "Desarrollé y mantuve microservicios para una plataforma de bienestar corporativo (EstarBien).",
+          "Utilicé Serverless Framework con servicios AWS Lambda, S3, SNS, SQS y SES.",
+          "Apliqué principios de DDD (Diseño Guiado por el Dominio) y Arquitectura Hexagonal para desacoplar la lógica de negocio.",
+          "Desarrollé pruebas unitarias e de integración utilizando metodologías BDD (Gherkin, Jest).",
+          "Construí funciones Lambda para el envío de correos masivos y bajo demanda integradas con NodeJS, SES, SQS y SNS.",
+          "Integré microservicios con webhooks de ContentStack para la gestión de contenido dinámico y en tiempo real en la plataforma EstarBien."
+        ]
+      },
+      {
+        "date": "Noviembre 2021 — Julio 2022",
+        "role": "Desarrollador Backend – NodeJS | AWS",
+        "company": "Jooycar/Chile",
+        "description": [
+          "Optimicé componentes de notificación utilizando AWS Lambda y Redis Cache para una entrega rápida.",
+          "Desarrollé microservicios escalables usando Express, MongoDB y Redis.",
+          "Implementé mecanismos de autenticación utilizando Cognito y AWS CDK para sistemas de gestión de flotas en EE. UU.",
+          "Desarrollé una aplicación web de cotización de seguros de auto utilizando VueJS, Pinia y TypeScript."
+        ]
+      },
+      {
+        "date": "Noviembre 2020 — Septiembre 2021",
+        "role": "Desarrollador Backend – NodeJS | AWS | Serverless",
+        "company": "Tata Consultancy Services/Perú",
+        "description": [
+          "Cliente Rimac Seguros.",
+          "Creado de funciones Lambda para la carga automatizada de encuestas de satisfacción de clientes NPS.",
+          "Desarrollé funciones Lambda expuestas a través de AWS API Gateway para la integración con plataformas de Salesforce.",
+          "Validé estructuras de datos de entidades y mapeé APIs core para Salesforce Marketing Cloud.",
+          "Transferí y sincronicé datos de GCP a Salesforce usando Google Cloud Functions en Python, Cloud Scheduler y Skyvia."
+        ]
+      },
+      {
+        "date": "2020",
+        "role": "Desarrollador Backend – Spring Boot | AWS",
+        "company": "Global66/Chile",
+        "description": [
+          "Desarrollé microservicios con Spring Boot para habilitar a España como país de origen para transferencias internacionales de dinero.",
+          "Utilicé AWS CodeCommit, RDS, API Gateway, CodePipeline y CloudWatch para despliegues seguros en la nube y monitoreo.",
+          "Implementé Liquibase para la gestión de migraciones de esquemas de bases de datos y Retrofit para integraciones externas.",
+          "Implementé un microservicio integrado con Google Sheets para actualizar tablas del sistema en tiempo real."
+        ]
+      },
+      {
+        "date": "2019",
+        "role": "Desarrollador Backend – Spring Boot | AWS",
+        "company": "Everis (BCP)/Lima",
+        "description": [
+          "Construí APIs REST para soluciones de pago de comercios, la aplicación de Banca Móvil del BCP y sistemas financieros auxiliares.",
+          "Diseñé y desarrollé microservicios para las capas de negocio, aplicación y canales."
+        ]
+      }
+    ]
+  },
+  "workspace": {
+    "title": "Espacio de Trabajo y Vida",
+    "images": {
+      "commandCenter": "Configuración de espacio de trabajo de desarrollo moderno con doble monitor",
+      "battlestation": "Configuración de escritorio con monitor ultrawide y teclado mecánico",
+      "offlineMode": "Desarrollador haciendo senderismo en un paisaje montañoso durante su tiempo libre"
+    }
+  },
+  "contact": {
+    "sectionNum": "04. ¿Qué Sigue?",
+    "subtitle": "¿Qué Sigue?",
+    "title": "Construyamos Algo Juntos",
+    "description": "Actualmente estoy abierto a nuevas oportunidades. ¡Ya sea que tengas una pregunta o simplemente quieras saludar, haré todo lo posible por responderte!",
+    "button": "Saludar"
+  },
+  "footer": {
+    "engineered": "DISEÑADO CON PRECISIÓN."
+  }
+}
